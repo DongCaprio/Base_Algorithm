@@ -9,7 +9,7 @@ public class Main {
 		str = str.toUpperCase();
 		t = Character.toUpperCase(t);
 		//System.out.println(str+" "+t);
-		for(char x : str.toCharArray()) {
+		for(char x : str.toCharArray()) { //향상된 for문
 			if(t == x) {
 				answer ++;
 			}
