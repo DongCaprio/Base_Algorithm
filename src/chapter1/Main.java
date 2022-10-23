@@ -4,11 +4,19 @@ import java.util.Scanner;
 class Main {
 	public String solution(String str) {
 		String answer = "";
-		
-		for(char x : str.toCharArray()) {
-			if(x >= 65 && x <= 90) {
-				x = Character.toUpperCase(x);
+		String answer3 = "";
+		int a = 0;
+		char[] aa = str.toCharArray();
+		for(char x : aa) {
+			String answer2 = "";
+			if(x != ' ') {
 				answer += x;
+				answer2 += x;
+				answer3 += x;
+				if(answer2.length() > answer.length()) {
+					answer = answer2;
+				}
+				answer2 = "";
 			}
 		}
 		
@@ -18,7 +26,7 @@ class Main {
 	public static void main(String[] args) {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
-		String str = kb.next();
+		String str = kb.nextLine();
 		System.out.println(T.solution(str));
 	}
 }
