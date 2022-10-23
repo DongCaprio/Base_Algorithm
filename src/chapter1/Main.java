@@ -1,19 +1,17 @@
 package chapter1;
-
 import java.util.Scanner;
 
-public class Main {
-
-	public int solution(String str, char t) {
-		int answer = 0;
-		str = str.toUpperCase();
-		t = Character.toUpperCase(t);
-		//System.out.println(str+" "+t);
-		for(char x : str.toCharArray()) { //향상된 for문
-			if(t == x) {
-				answer ++;
+class Main {
+	public String solution(String str) {
+		String answer = "";
+		
+		for(char x : str.toCharArray()) {
+			if(x >= 65 && x <= 90) {
+				x = Character.toUpperCase(x);
+				answer += x;
 			}
 		}
+		
 		return answer;
 	}
 	
@@ -21,8 +19,6 @@ public class Main {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
 		String str = kb.next();
-		char c = kb.next().charAt(0);
-		System.out.println(T.solution(str, c));
+		System.out.println(T.solution(str));
 	}
-
 }
