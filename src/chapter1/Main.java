@@ -2,31 +2,26 @@ package chapter1;
 import java.util.Scanner;
 
 class Main {
-	public String solution(String str) {
+	public String[] solution(String[] array) {
 		String answer = "";
-		String answer3 = "";
-		int a = 0;
-		char[] aa = str.toCharArray();
-		for(char x : aa) {
-			String answer2 = "";
-			if(x != ' ') {
-				answer += x;
-				answer2 += x;
-				answer3 += x;
-				if(answer2.length() > answer.length()) {
-					answer = answer2;
-				}
-				answer2 = "";
+		String[] answerArray = new String[array.length];
+		for (int i =0; i<array.length; i++) {
+			for(int j =array[i].length(); j > 0;j--) {
+				answerArray[i] += array[i].charAt(j);
 			}
 		}
-		
-		return answer;
+		return answerArray;
 	}
 	
 	public static void main(String[] args) {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
-		String str = kb.nextLine();
-		System.out.println(T.solution(str));
+		int str = kb.nextInt();
+		String [] array = new String[str];
+		for(int i =0; i<str; i++) {
+			array[i] = kb.nextLine();
+		}
+		
+		System.out.println(T.solution(array));
 	}
 }
