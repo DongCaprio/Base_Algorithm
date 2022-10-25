@@ -1,27 +1,41 @@
 package chapter1;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class Main {
-	public String[] solution(String[] array) {
-		String answer = "";
-		String[] answerArray = new String[array.length];
-		for (int i =0; i<array.length; i++) {
-			for(int j =array[i].length(); j > 0;j--) {
-				answerArray[i] += array[i].charAt(j);
+	public ArrayList<String> solution(int n,String[] str) {
+		ArrayList<String> answer = new ArrayList<>();
+		/*for (String x : str) {
+			String tmp = new StringBuilder(x).reverse().toString();
+			answer.add(tmp);
+		}*/
+		for(String x : str) {
+			char[] aa = x.toCharArray();
+			int lt = 0, rt = aa.length-1;
+			while(lt <rt) {
+				char tmp = aa[lt];
+				aa[lt] = aa[rt];
+				aa[rt] = tmp;
+				lt ++;
+				rt --;
 			}
+			answer.add(String.valueOf(aa)); //char배열을 String으로 바꾸기 -> String.valueOf(배열);
 		}
-		return answerArray;
+		
+		
+		return answer;
 	}
 	
 	public static void main(String[] args) {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
-		int str = kb.nextInt();
-		String [] array = new String[str];
-		for(int i =0; i<str; i++) {
-			array[i] = kb.nextLine();
+		int n = kb.nextInt();
+		String[] str = new String[n];
+		for(int i =0; i<n; i++) {
+			str[i] = kb.next();
 		}
-		
-		System.out.println(T.solution(array));
+		for(String x : T.solution(n, str)) {
+			System.out.println(x);
+		}
 	}
 }
