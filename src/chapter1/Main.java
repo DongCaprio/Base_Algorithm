@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 class Main {
 	public String solution(String str) {
+		
+		//str.toUpperCase().replaceAll("[^A-Z]", "");
+		//str에서 A부터Z는 "" 빈값으로 변경하는 메소드.
+		
 		String answer = "";
 		for(int i =0; i<str.length(); i++) {
 			if(Character.isAlphabetic(str.charAt(i))) {
