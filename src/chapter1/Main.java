@@ -1,30 +1,27 @@
 package chapter1;
+
 import java.util.Scanner;
 
 class Main {
-	public String solution(String str) {
-		
-		//str.toUpperCase().replaceAll("[^A-Z]", "");
-		//str에서 A부터Z를 제외하고는 "" 빈값으로 변경하는 메소드.
-		
+	public Integer solution(String str) {
 		String answer = "";
-		for(int i =0; i<str.length(); i++) {
-			if(Character.isAlphabetic(str.charAt(i))) {
-				answer += str.charAt(i);
-			}
+		String change = str.replaceAll("[^0-9]", "");
+
+		int change2 = Integer.parseInt(change);
+		String change3 = Integer.toString(change2);
+		for (int i = 0; i < change3.length(); i++) {
+			answer += change3.charAt(i);
 		}
-		String tmp = new StringBuilder(answer).reverse().toString().toUpperCase();
-		if(tmp.equals(answer.toUpperCase())){
-			return "YES";
-		} else {
-			return "NO";
+		if(answer.length() > 8) {
+			answer.substring(7);
 		}
+		return Integer.parseInt(answer);
 	}
-	
+
 	public static void main(String[] args) {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
-		String str = kb.nextLine();
+		String str = kb.next();
 		System.out.println(T.solution(str));
 	}
 }
