@@ -2,21 +2,27 @@ package chapter2;
 import java.util.Scanner;
 
 class Main {
-	public int solution(int n) {
-		int nn =0;
-		for(int i =2; i<=n; i++) {
-			if(n % i == 0) {
-				nn++; 
-				continue; 
-			}
-		}
-		return nn;
+	public int solution(int n, int[] aa) {
+		int answer = 0;
+
+        while (n != 0) {
+            answer = answer * 10 + n % 10;
+            n /= 10;
+            if(n == 0) answer = 0;
+        }
+        
+        
+        return answer;
 	}
 	
 	public static void main(String[] args) {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
 		int n = kb.nextInt();
-		System.out.println(T.solution(n));
+		int [] aa = new int[n];
+		for(int i =0; i<n;i++) {
+			aa[i] = kb.nextInt();
+		}
+		System.out.println(T.solution(n, aa));
 	}
 }
