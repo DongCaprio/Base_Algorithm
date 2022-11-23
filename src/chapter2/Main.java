@@ -1,16 +1,31 @@
 package chapter2;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 class Main {
-	public int solution(int n, int[] aa) {
-		int answer = 0;
-
-        while (n != 0) {
-            answer = answer * 10 + n % 10;
-            n /= 10;
-            if(n == 0) answer = 0;
-        }
-        
+	public boolean isPrime(int n) {
+		if(n < 2) return false;
+		for(int i=2; i*i<= n; i++) {
+			if(n % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public List<Integer> solution(int n, int[] aa) {
+		List<Integer> answer = new ArrayList<Integer>();
+		for(int i =0; i<n; i++) {
+			int tmp = aa[i];
+			int res = 0;
+			while(tmp > 0) {
+				int t = tmp%10;
+				res = res *10+t;
+				tmp = tmp / 10;
+			}
+			if(isPrime(res)) answer.add(res);
+		}
         
         return answer;
 	}
@@ -23,6 +38,8 @@ class Main {
 		for(int i =0; i<n;i++) {
 			aa[i] = kb.nextInt();
 		}
-		System.out.println(T.solution(n, aa));
+		for(int x : T.solution(n, aa)) {
+			System.out.print(x+" ");
+		}
 	}
 }
