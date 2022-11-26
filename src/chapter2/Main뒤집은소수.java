@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class Main {
+class Main뒤집은소수 {
 	public boolean isPrime(int n) {
 		if(n < 2) return false;
 		for(int i=2; i*i<= n; i++) {
@@ -31,7 +31,7 @@ class Main {
 	}
 	
 	public static void main(String[] args) {
-		Main T = new Main();
+		Main뒤집은소수 T = new Main뒤집은소수();
 		Scanner kb = new Scanner(System.in);
 		int n = kb.nextInt();
 		int [] aa = new int[n];
