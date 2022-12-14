@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-class Main {
+class Main공통원소구하기 {
 	public List<Integer> solution(int n1, int[] arr1, int n2, int[] arr2) {
 		List<Integer> intList = new ArrayList<>();
 		
@@ -30,7 +30,7 @@ class Main {
 	}
 	
 	public static void main(String[] args) {
-		Main T = new Main();
+		Main공통원소구하기 T = new Main공통원소구하기();
 		Scanner kb = new Scanner(System.in);
 		int n = kb.nextInt();
 		int[] aa = new int[n];
