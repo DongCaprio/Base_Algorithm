@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-class Main {
+class Main매출액의종류 {
 	public List<Integer> solution(int n1, int n2, int[] arr) {
 		int lt =0;
 		Map<Integer,Integer> map = new HashMap<>();
@@ -24,7 +24,7 @@ class Main {
 	}
 	
 	public static void main(String[] args) {
-		Main T = new Main();
+		Main매출액의종류 T = new Main매출액의종류();
 		Scanner kb = new Scanner(System.in);
 		int n1 = kb.nextInt();
 		int n2 = kb.nextInt();
