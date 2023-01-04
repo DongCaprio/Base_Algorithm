@@ -1,44 +1,32 @@
 package chapter5;
+
 import java.util.Scanner;
 import java.util.Stack;
 
 class Main {
-	public int solution(int n, int[][] intArr, int m, int[] mArr) {
+	public int solution(String str) {
 		int answer = 0;
-		Stack<Integer> st = new Stack<Integer>();
-		for(int x : mArr) {
-			for(int i =0; i<n; i++) {
-				if(intArr[i][x-1] != 0) {
-					int tmp = intArr[i][x-1];
-					intArr[i][x-1] = 0;
-					if(!st.empty() && tmp == st.peek()) {
-						answer += 2;
-						st.pop();
-					} else {
-						st.push(tmp);
-						break;
-					}
+		Stack<Character> st = new Stack<Character>();
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) == '(')
+				st.push(str.charAt(i));
+			else {
+				if (!st.empty() && str.charAt(i - 1) == '(') {
+					st.pop();
+					answer += st.size();
+				} else {
+					st.pop();
+					answer++;
 				}
 			}
 		}
 		return answer;
 	}
-	
+
 	public static void main(String[] args) {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
-		int n = kb.nextInt();
-		int[][] intArr = new int[n][n];
-		for(int i=0; i<n; i++) {
-			for(int j =0; j<n; j++) {
-				intArr[i][j] = kb.nextInt();
-			}
-		}
-		int m = kb.nextInt();
-		int [] mArr = new int[m];
-		for(int i =0; i<m; i++) {
-			mArr[i] = kb.nextInt();
-		}
-		System.out.println(T.solution(n,intArr,m,mArr));
+		String str = kb.next();
+		System.out.println(T.solution(str));
 	}
 }
